@@ -1,30 +1,29 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import AppLayout from "./Components/Layout/AppLayout"
-import Dashboard from "./Pages/Dashboard"
-import Profile from "./Pages/Profile"
-import Tasks from "./Pages/Tasks"
-import Register from "./Pages/Register"
-import Login from "./Pages/Login"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import AppLayout from "./Components/Layout/AppLayout";
+import Dashboard from "./Pages/Dashboard";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import Profile from "./Pages/Profile";
+import Tasks from "./Pages/Tasks";
+import PageNotFound from "./Pages/PageNotFound";
 
-const App = () => {
+function App() {
   return (
-    <>
     <BrowserRouter>
-    <Routes>
-    <Route element={<AppLayout/>}>
-    <Route path="/" element={<Dashboard/>}/>
-    <Route path="/profile" element={<Profile/>}/>
-    <Route path="/tasks" element={<Tasks/>}/>
-    <Route path="/register" element={<Register/>}/>
-    <Route path="/login" element={<Login/>}/>
-    </Route>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="tasks" element={<Tasks />} />
+        </Route>
 
-    </Routes>
-    
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </BrowserRouter>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
