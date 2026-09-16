@@ -1,9 +1,8 @@
 {
-    "gettasks":[
+    "task":[
         {
-         "id": 1,
-         "role":"developer"
-
+            "id":1,
+            "task":"react"
         }
     ]
 }
